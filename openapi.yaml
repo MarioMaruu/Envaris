@@ -2,6 +2,8 @@ openapi: 3.0.1
 info:
   title: Envaris Persönlichkeitsprofil
   version: 1.0
+servers:
+  - url: https://envaris.onrender.com
 paths:
   /next_category/{category_id}:
     get:
