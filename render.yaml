@@ -1,7 +1,8 @@
 services:
   - type: web
-    name: persoenlichkeitsprofil-ultra
+    name: envaris
     env: python
     buildCommand: ""
     startCommand: python app.py
     plan: free
+
