@@ -2,16 +2,19 @@
   "schema_version": "v1",
   "name_for_human": "Envaris Persönlichkeitsprofil",
   "name_for_model": "envaris_persoenlichkeitsprofil",
-  "description_for_human": "Erstellt ein steuerbares, präzises Persönlichkeitsprofil.",
-  "description_for_model": "Hole Kategorien und präzise Fragen nacheinander, um ein vollständiges Persönlichkeitsprofil zu erstellen.",
+  "description_for_human": "Erstellt ein steuerbares, präzises Persönlichkeitsprofil mit gezielten Fragen.",
+  "description_for_model": "Frage Kategorien nacheinander ab, um ein vollständiges Persönlichkeitsprofil zu erstellen.",
   "auth": {
     "type": "none"
   },
   "api": {
+    "type": "openapi",
     "url": "https://envaris.onrender.com/openapi.yaml",
     "is_user_authenticated": false
   },
   "logo_url": "https://envaris.onrender.com/logo.png",
-  "contact_email": "deine@email.de",
-  "legal_info_url": "https://envaris.onrender.com/legal"
+  "contact_email": "deine-email@example.com",
+  "legal_info_url": "https://envaris.onrender.com/legal",
+  "privacy_policy_url": "https://envaris.onrender.com/privacy",
+  "terms_of_service_url": "https://envaris.onrender.com/terms"
 }
