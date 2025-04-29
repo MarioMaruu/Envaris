@@ -1,0 +1,33 @@
+openapi: 3.0.1
+info:
+  title: Envaris Persönlichkeitsprofil
+  version: 1.0
+paths:
+  /next_category/{category_id}:
+    get:
+      summary: Hole eine Kategorie und ihre Fragen
+      parameters:
+        - name: category_id
+          in: path
+          required: true
+          schema:
+            type: integer
+          description: ID der Kategorie (z.B. 1 bis 32)
+      responses:
+        "200":
+          description: Erfolgreich
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: integer
+                  name:
+                    type: string
+                  questions:
+                    type: array
+                    items:
+                      type: string
+        "404":
+          description: Kategorie nicht gefunden
