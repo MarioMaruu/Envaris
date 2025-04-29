@@ -22,7 +22,7 @@ categories = [
             "Wie stark ist deine Fähigkeit, dich in andere einzufühlen?"
         ]
     }
-    # ➔ Hier kannst du später weitere Kategorien ergänzen
+    # ➔ Weitere Kategorien kannst du später ergänzen
 ]
 
 # API-Route: Hole nächste Kategorie
@@ -38,12 +38,14 @@ def next_category(category_id):
 def serve_manifest():
     return send_from_directory('.', 'ai-plugin.json', mimetype='application/json')
 
-# Route für openapi.yaml
+# NEU: Route für openapi.yaml (sauber ausgeliefert!)
 @app.route('/openapi.yaml')
 def serve_openapi():
-    return send_from_directory('.', 'openapi.yaml', mimetype='application/yaml')
+    with open('openapi.yaml', 'r') as f:
+        yaml_content = f.read()
+    return Response(yaml_content, mimetype='application/yaml')
 
-# ➡️ NEUE Routen für Privacy, Legal, Terms
+# Rechtstexte (Privacy Policy / Legal / Terms)
 
 @app.route('/privacy')
 def privacy_policy():
@@ -53,7 +55,7 @@ def privacy_policy():
     Dieses Plugin erhebt keine personenbezogenen Daten. Es verarbeitet lediglich Antworten auf gestellte Fragen lokal innerhalb der ChatGPT Umgebung. Keine Daten werden gespeichert oder an Dritte weitergegeben.
 
     Verantwortlicher: Envaris Plugin Entwickler
-    Kontakt: Mariodftw@gmail.com
+    Kontakt: deine-email@example.com
     """
     return Response(text, mimetype='text/plain')
 
@@ -64,7 +66,7 @@ def legal_info():
 
     Verantwortlich für den Inhalt:
     Envaris Plugin Entwickler
-    Kontakt: Mariodftw@gmail.com
+    Kontakt: deine-email@example.com
     Hinweis: Dieses Plugin ist ein persönliches Projekt und dient ausschließlich Test- und Demonstrationszwecken.
     """
     return Response(text, mimetype='text/plain')
@@ -81,4 +83,3 @@ def terms_of_service():
 # Start der App
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
-
